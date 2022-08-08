@@ -1,0 +1,4 @@
+# Copyright (C) 2022 Hpmicro. All rights reserved.
+
+group("hpm6750evk_demo") {
+}

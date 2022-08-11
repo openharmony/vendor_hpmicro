@@ -1,0 +1,8 @@
+root {
+    platform {
+        config_watch0 :: config_watchdog {
+            match_attr = "hpmicro_watchdog0";
+            id = 0;
+        }
+    }
+}

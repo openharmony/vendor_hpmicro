@@ -22,12 +22,44 @@ root {
             priority = 50;
             device_watchdog :: device {
                 device0 :: deviceNode {
-                    policy = 1;
+                    policy = 2;
                     priority = 20;
                     permission = 0644; 
                     moduleName = "HPMICRO_WATCHDOG_MODULE_HDF";
                     serviceName = "HDF_PLATFORM_WATCHDOG_0";
-                    deviceMatchAttr = "hpmciro_watchdog0";
+                    deviceMatchAttr = "hpmicro_watchdog0";
+                }
+                device1 :: deviceNode {
+                    policy = 2;
+                    priority = 20;
+                    permission = 0644; 
+                    moduleName = "HPMICRO_WATCHDOG_MODULE_HDF";
+                    serviceName = "HDF_PLATFORM_WATCHDOG_1";
+                    deviceMatchAttr = "hpmicro_watchdog1";
+                }
+                device2 :: deviceNode {
+                    policy = 2;
+                    priority = 20;
+                    permission = 0644; 
+                    moduleName = "HPMICRO_WATCHDOG_MODULE_HDF";
+                    serviceName = "HDF_PLATFORM_WATCHDOG_2";
+                    deviceMatchAttr = "hpmicro_watchdog2";
+                }
+                device3 :: deviceNode {
+                    policy = 2;
+                    priority = 20;
+                    permission = 0644; 
+                    moduleName = "HPMICRO_WATCHDOG_MODULE_HDF";
+                    serviceName = "HDF_PLATFORM_WATCHDOG_3";
+                    deviceMatchAttr = "hpmicro_watchdog3";
+                }
+                device4 :: deviceNode {
+                    policy = 2;
+                    priority = 20;
+                    permission = 0644; 
+                    moduleName = "HPMICRO_WATCHDOG_MODULE_HDF";
+                    serviceName = "HDF_PLATFORM_WATCHDOG_4";
+                    deviceMatchAttr = "hpmicro_watchdog4";
                 }
             }
         }

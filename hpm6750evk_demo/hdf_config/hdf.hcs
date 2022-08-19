@@ -1,5 +1,6 @@
 #include "device_info/device_info.hcs"
 #include "../../../../device/soc/hpmicro/hcs/hpm6700/hpm6750.hcs"
 #include "config/platform/watchdog.hcs"
+#include "config/platform/gpio.hcs"
 
 

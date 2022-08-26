@@ -8,7 +8,14 @@
 	"kernel_type": "liteos_m",
 	"kernel_version": "3.0.0",
 	"force_link_libs": [
-		"bootstrap"
+		"bootstrap",
+		"broadcast",
+		"hctest",
+		"module_ActsParameterTest",
+		"module_ActsBootstrapTest",
+		"module_ActsHieventLiteTest",
+		"module_ActsDfxFuncTest",
+		"module_ActsKvStoreTest"
 	],
 	"subsystems": [{
 			"subsystem": "kernel",
@@ -25,8 +32,10 @@
 				{
 					"component": "init_lite",
 					"features": [
-						"enable_ohos_startup_init_feature_begetctl_liteos = true",
-						"enable_ohos_startup_init_lite_use_posix_file_api = true"
+						"enable_ohos_startup_init_feature_begetctl_liteos = false",
+						"enable_ohos_startup_init_lite_use_posix_file_api = true",
+						"config_ohos_startup_init_lite_data_path = \"/data/\"",
+						"config_ohos_startup_syspara_lite_data_path = \"/data/\""
 					]
 				},
 				{
@@ -45,6 +54,15 @@
 			}]
 		},
 		{
+			"subsystem": "distributeddatamgr",
+			"components": [{
+				"component": "kv_store",
+				"features": [
+					"enable_ohos_utils_native_lite_kv_store_use_posix_kv_api = true"
+				]
+			}]
+		},
+		{
 			"subsystem": "hiviewdfx",
 			"components": [{
 					"component": "hilog_lite",
@@ -53,9 +71,31 @@
 				{
 					"component": "hievent_lite",
 					"optional": "true"
+				},
+				{
+				  "component": "hiview_lite",
+				  "features": [
+					"ohos_hiviewdfx_hiview_lite_stack_size = 4096"
+				  ]
 				}
 			]
-		}
+		},
+		{
+			"subsystem": "xts",
+			"components": [
+			  {
+				"component": "xts_acts",
+				"features": [
+				  "config_ohos_xts_acts_utils_lite_kv_store_data_path = \"/data\"",
+                  "build_xts = true"
+				]
+			  },
+			  {
+				"component": "xts_tools",
+				"features": []
+			  }
+			]
+		  }
 	],
 	"third_party_dir": "",
 	"product_adapter_dir": "//vendor/hpmicro/hpm6750evk_demo/hals"

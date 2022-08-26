@@ -11,6 +11,12 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+#"hctest",
+#"module_ActsBootstrapTest",
+#"module_ActsHieventLiteTest",
+#"module_ActsDfxFuncTest",
+#"module_ActsKvStoreTest"
+
 module_name = get_path_info(rebase_path("."), "name")
 group(module_name) {
 

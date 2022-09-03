@@ -3,5 +3,6 @@
 #include "config/platform/watchdog.hcs"
 #include "config/platform/gpio.hcs"
 #include "config/platform/uart.hcs"
-
+#include "config/platform/i2c.hcs"
+#include "config/platform/spi.hcs"
 

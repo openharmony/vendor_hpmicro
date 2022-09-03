@@ -74,6 +74,35 @@ root {
                     deviceMatchAttr = "hpmicro_uart3";
                 }
             }
+
+            device_i2c :: device {
+                device_manger :: deviceNode {
+                    policy = 2;
+                    priority = 10;
+                    permission = 0644; 
+                    moduleName = "HDF_PLATFORM_I2C_MANAGER";
+                    serviceName = "HDF_PLATFORM_I2C_MANAGER";
+                }
+                device0 :: deviceNode {
+                    policy = 0;
+                    priority = 20;
+                    permission = 0644; 
+                    moduleName = "HPMICRO_I2C_MODULE_HDF";
+                    serviceName = "HDF_PLATFORM_I2C_0";
+                    deviceMatchAttr = "hpmicro_i2c0";
+                }
+            }
+
+            device_spi :: device {
+                device0 :: deviceNode {
+                    policy = 2;
+                    priority = 20;
+                    permission = 0644; 
+                    moduleName = "HPMICRO_SPI_MODULE_HDF";
+                    serviceName = "HDF_PLATFORM_SPI_0";
+                    deviceMatchAttr = "hpmicro_spi0";
+                }
+            }
         }
     }
 }

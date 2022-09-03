@@ -2,5 +2,6 @@
 #include "../../../../device/soc/hpmicro/hcs/hpm6700/hpm6750.hcs"
 #include "config/platform/watchdog.hcs"
 #include "config/platform/gpio.hcs"
+#include "config/platform/uart.hcs"
 
 

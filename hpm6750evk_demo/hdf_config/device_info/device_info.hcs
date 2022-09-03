@@ -21,22 +21,6 @@ root {
             hostName = "platform_host";
             priority = 50;
             device_watchdog :: device {
-                device0 :: deviceNode {
-                    policy = 2;
-                    priority = 20;
-                    permission = 0644; 
-                    moduleName = "HPMICRO_WATCHDOG_MODULE_HDF";
-                    serviceName = "HDF_PLATFORM_WATCHDOG_0";
-                    deviceMatchAttr = "hpmicro_watchdog0";
-                }
-                device1 :: deviceNode {
-                    policy = 2;
-                    priority = 20;
-                    permission = 0644; 
-                    moduleName = "HPMICRO_WATCHDOG_MODULE_HDF";
-                    serviceName = "HDF_PLATFORM_WATCHDOG_1";
-                    deviceMatchAttr = "hpmicro_watchdog1";
-                }
                 device2 :: deviceNode {
                     policy = 2;
                     priority = 20;
@@ -44,14 +28,6 @@ root {
                     moduleName = "HPMICRO_WATCHDOG_MODULE_HDF";
                     serviceName = "HDF_PLATFORM_WATCHDOG_2";
                     deviceMatchAttr = "hpmicro_watchdog2";
-                }
-                device3 :: deviceNode {
-                    policy = 2;
-                    priority = 20;
-                    permission = 0644; 
-                    moduleName = "HPMICRO_WATCHDOG_MODULE_HDF";
-                    serviceName = "HDF_PLATFORM_WATCHDOG_3";
-                    deviceMatchAttr = "hpmicro_watchdog3";
                 }
                 device4 :: deviceNode {
                     policy = 2;
@@ -64,13 +40,6 @@ root {
             }
 
             device_gpio :: device {
-                gpio_a :: deviceNode {
-                    policy = 0;
-                    priority = 10;
-                    permission = 0644; 
-                    moduleName = "HPMICRO_GPIO_MODULE_HDF";
-                    deviceMatchAttr = "hpmicro_gpio_a";
-                }
                 gpio_b :: deviceNode {
                     policy = 0;
                     priority = 10;
@@ -78,47 +47,31 @@ root {
                     moduleName = "HPMICRO_GPIO_MODULE_HDF";
                     deviceMatchAttr = "hpmicro_gpio_b";
                 }
-                gpio_c :: deviceNode {
-                    policy = 0;
-                    priority = 10;
-                    permission = 0644; 
-                    moduleName = "HPMICRO_GPIO_MODULE_HDF";
-                    deviceMatchAttr = "hpmicro_gpio_c";
-                }
-                gpio_d :: deviceNode {
-                    policy = 0;
-                    priority = 10;
-                    permission = 0644; 
-                    moduleName = "HPMICRO_GPIO_MODULE_HDF";
-                    deviceMatchAttr = "hpmicro_gpio_d";
-                }
-                gpio_e :: deviceNode {
-                    policy = 0;
-                    priority = 10;
-                    permission = 0644; 
-                    moduleName = "HPMICRO_GPIO_MODULE_HDF";
-                    deviceMatchAttr = "hpmicro_gpio_e";
-                }
-                gpio_f :: deviceNode {
-                    policy = 0;
-                    priority = 10;
-                    permission = 0644; 
-                    moduleName = "HPMICRO_GPIO_MODULE_HDF";
-                    deviceMatchAttr = "hpmicro_gpio_f";
-                }
-                gpio_y :: deviceNode {
-                    policy = 0;
-                    priority = 10;
-                    permission = 0644; 
-                    moduleName = "HPMICRO_GPIO_MODULE_HDF";
-                    deviceMatchAttr = "hpmicro_gpio_y";
-                }
                 gpio_z :: deviceNode {
                     policy = 0;
                     priority = 10;
                     permission = 0644; 
                     moduleName = "HPMICRO_GPIO_MODULE_HDF";
                     deviceMatchAttr = "hpmicro_gpio_z";
+                }
+            }
+
+            device_uart :: device {
+                device2 :: deviceNode {
+                    policy = 2;
+                    priority = 20;
+                    permission = 0644; 
+                    moduleName = "HPMICRO_UART_MODULE_HDF";
+                    serviceName = "HDF_PLATFORM_UART_2";
+                    deviceMatchAttr = "hpmicro_uart2";
+                }
+                device3 :: deviceNode {
+                    policy = 2;
+                    priority = 20;
+                    permission = 0644; 
+                    moduleName = "HPMICRO_UART_MODULE_HDF";
+                    serviceName = "HDF_PLATFORM_UART_3";
+                    deviceMatchAttr = "hpmicro_uart3";
                 }
             }
         }

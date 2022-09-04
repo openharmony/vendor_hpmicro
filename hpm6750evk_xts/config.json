@@ -1,5 +1,5 @@
 {
-	"product_name": "hpm6750evk_demo",
+	"product_name": "hpm6750evk_xts",
 	"type": "mini",
 	"version": "3.0",
 	"ohos_version": "OpenHarmony 3.1",
@@ -9,7 +9,14 @@
 	"kernel_version": "3.0.0",
 	"force_link_libs": [
 		"bootstrap",
-		"broadcast"
+		"broadcast",
+		"hctest",
+		"module_ActsParameterTest",
+		"module_ActsBootstrapTest",
+		"module_ActsHieventLiteTest",
+		"module_ActsDfxFuncTest",
+		"module_ActsKvStoreTest",
+		"module_ActsSamgrTest"
 	],
 	"subsystems": [{
 			"subsystem": "kernel",
@@ -73,8 +80,24 @@
 				  ]
 				}
 			]
-		}
+		},
+		{
+			"subsystem": "xts",
+			"components": [
+			  {
+				"component": "xts_acts",
+				"features": [
+				  "config_ohos_xts_acts_utils_lite_kv_store_data_path = \"/data\"",
+                  "build_xts = true"
+				]
+			  },
+			  {
+				"component": "xts_tools",
+				"features": []
+			  }
+			]
+		  }
 	],
 	"third_party_dir": "",
-	"product_adapter_dir": "//vendor/hpmicro/hpm6750evk_demo/hals"
+	"product_adapter_dir": "//vendor/hpmicro/hpm6750evk_xts/hals"
 }

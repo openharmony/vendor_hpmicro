@@ -1,0 +1,80 @@
+{
+	"product_name": "hpm6750evk_demo",
+	"type": "mini",
+	"version": "3.0",
+	"ohos_version": "OpenHarmony 3.1",
+	"device_company": "hpmicro",
+	"board": "hpm6750evk",
+	"kernel_type": "liteos_m",
+	"kernel_version": "3.0.0",
+	"force_link_libs": [
+		"bootstrap",
+		"broadcast"
+	],
+	"subsystems": [{
+			"subsystem": "kernel",
+			"components": [{
+				"component": "liteos_m",
+				"features": []
+			}]
+		},
+		{
+			"subsystem": "startup",
+			"components": [{
+					"component": "bootstrap_lite"
+				},
+				{
+					"component": "init_lite",
+					"features": [
+						"enable_ohos_startup_init_feature_begetctl_liteos = false",
+						"enable_ohos_startup_init_lite_use_posix_file_api = true",
+						"config_ohos_startup_init_lite_data_path = \"/data/\"",
+						"config_ohos_startup_syspara_lite_data_path = \"/data/\""
+					]
+				},
+				{
+					"component": "syspara_lite",
+					"features": []
+				}
+			]
+		},
+		{
+			"subsystem": "distributedschedule",
+			"components": [{
+				"component": "samgr_lite",
+				"features": [
+					"config_ohos_distributedschedule_samgr_lite_shared_task_size = 4096"
+				]
+			}]
+		},
+		{
+			"subsystem": "distributeddatamgr",
+			"components": [{
+				"component": "kv_store",
+				"features": [
+					"enable_ohos_utils_native_lite_kv_store_use_posix_kv_api = true"
+				]
+			}]
+		},
+		{
+			"subsystem": "hiviewdfx",
+			"components": [{
+					"component": "hilog_lite",
+					"optional": "true"
+				},
+				{
+					"component": "hievent_lite",
+					"optional": "true"
+				},
+				{
+				  "component": "hiview_lite",
+				  "features": [
+					"ohos_hiviewdfx_hiview_lite_stack_size = 4096"
+				  ]
+				}
+			]
+		}
+	],
+	"third_party_dir": "",
+	"product_adapter_dir": "//vendor/hpmicro/hpm6750evk_demo/hals"
+}

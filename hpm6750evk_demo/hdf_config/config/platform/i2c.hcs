@@ -1,0 +1,28 @@
+root {
+    platform {
+        config_i2c0 :: config_i2c {
+            match_attr = "hpmicro_i2c0";
+            id = 0;
+            base = 0xF3020000; 
+            clk_freq = 24000000;
+        }
+        config_i2c1 :: config_i2c {
+            match_attr = "hpmicro_i2c1";
+            id = 1;
+            base = 0xF3024000; 
+            clk_freq = 24000000;
+        }
+        config_i2c2 :: config_i2c {
+            match_attr = "hpmicro_i2c2";
+            id = 2;
+            base = 0xF3028000; 
+            clk_freq = 24000000;
+        }
+        config_i2c3 :: config_i2c {
+            match_attr = "hpmicro_i2c3";
+            id = 3;
+            base = 0xF302C000; 
+            clk_freq = 24000000;
+        }
+    }
+}

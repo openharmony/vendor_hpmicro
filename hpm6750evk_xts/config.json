@@ -9,7 +9,13 @@
 	"kernel_version": "3.0.0",
 	"force_link_libs": [
 		"bootstrap",
-		"broadcast"
+		"broadcast",	
+		"hctest",
+		"module_ActsParameterTest",
+		"module_ActsBootstrapTest",
+		"module_ActsHieventLiteTest",
+		"module_ActsDfxFuncTest",
+		"module_ActsSamgrTest"
 	],
 	"subsystems": [{
 			"subsystem": "kernel",
@@ -41,20 +47,17 @@
 			]
 		},
 		{
-			"subsystem": "distributedschedule",
+                      "subsystem": "commonlibrary",
+                      "components": [
+                          { "component": "file", "features":[] }
+                      ]
+                },
+		{
+			"subsystem": "systemabilitymgr",
 			"components": [{
 				"component": "samgr_lite",
 				"features": [
-					"config_ohos_distributedschedule_samgr_lite_shared_task_size = 4096"
-				]
-			}]
-		},
-		{
-			"subsystem": "distributeddatamgr",
-			"components": [{
-				"component": "kv_store",
-				"features": [
-					"enable_ohos_utils_native_lite_kv_store_use_posix_kv_api = true"
+					"config_ohos_systemabilitymgr_samgr_lite_shared_task_size = 4096"
 				]
 			}]
 		},
@@ -94,5 +97,6 @@
 		  }
 	],
 	"third_party_dir": "",
-	"product_adapter_dir": "//vendor/hpmicro/hpm6750evk_xts/hals"
+	"product_adapter_dir": "//vendor/hpmicro/hpm6750evk_xts/hals",
+	"vendor_adapter_dir": "//device/soc/hpmicro/hpm6700"
 }

@@ -1,5 +1,5 @@
 {
-	"product_name": "hpm6750evk_xts",
+	"product_name": "hpm6750evk2",
 	"type": "mini",
 	"version": "3.0",
 	"ohos_version": "OpenHarmony 3.1",
@@ -97,6 +97,6 @@
 		  }
 	],
 	"third_party_dir": "",
-	"product_adapter_dir": "//vendor/hpmicro/hpm6750evk_xts/hals",
+	"product_adapter_dir": "//vendor/hpmicro/hpm6750evk2/hals",
 	"vendor_adapter_dir": "//device/soc/hpmicro/hpm6700"
 }

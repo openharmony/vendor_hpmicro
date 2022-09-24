@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2021 HPMicro.
+ * Copyright (c) 2022 HPMicro.
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -15,20 +15,20 @@
 
 #include "hal_sys_param.h"
 
-#define OHOS_DEVICE_TYPE "liteWearable"
-#define OHOS_DISPLAY_VERSION "OpenHarmony-2.2-Beta2"
-#define OHOS_MANUFACTURE "HPMicro"
-#define OHOS_BRAND "HPMicro"
-#define OHOS_MARKET_NAME "****"
-#define OHOS_PRODUCT_SERIES "****"
-#define OHOS_PRODUCT_MODEL "****"
-#define OHOS_SOFTWARE_MODEL "****"
-#define OHOS_HARDWARE_MODEL "hpm6750"
-#define OHOS_HARDWARE_PROFILE "aout:true"
-#define OHOS_BOOTLOADER_VERSION "bootloader"
-#define OHOS_ABI_LIST "****"
-#define OHOS_SERIAL "1234567890"
-#define OHOS_FIRST_API_VERSION  1
+static const char OHOS_DEVICE_TYPE[] = {"****"};
+static const char OHOS_DISPLAY_VERSION[] = {"OpenHarmony 3.1.2"};
+static const char OHOS_MANUFACTURE[] = {"****"};
+static const char OHOS_BRAND[] = {"****"};
+static const char OHOS_MARKET_NAME[] = {"****"};
+static const char OHOS_PRODUCT_SERIES[] = {"****"};
+static const char OHOS_PRODUCT_MODEL[] = {"****"};
+static const char OHOS_SOFTWARE_MODEL[] = {"****"};
+static const char OHOS_HARDWARE_MODEL[] = {"****"};
+static const char OHOS_HARDWARE_PROFILE[] = {"aout:true"};
+static const char OHOS_BOOTLOADER_VERSION[] = {"bootloader"};
+static const char OHOS_ABI_LIST[] = {"****"};
+static const char OHOS_SERIAL[] = {"1234567890"};  // provided by OEM.
+static const int OHOS_FIRST_API_VERSION = 1;
 
 const char* HalGetDeviceType(void)
 {
@@ -123,4 +123,12 @@ const char* HalGetBuildTime(void)
 int HalGetFirstApiVersion(void)
 {
     return OHOS_FIRST_API_VERSION;
+}
+
+/**
+ * @brief implement for js kvstorekit/filekit
+ */
+const char *GetDataPath(void)
+{
+    return "/data";
 }

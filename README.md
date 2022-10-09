@@ -14,7 +14,7 @@
 device/                               --- 硬件单板相关仓库
 ├── board/hpmicro                     --- HPMicro相关单板
 ├── soc/hpmicro                       --- HPMicro相关SoC代码
-vendor/hpmicro/                       --- vendor_goodix 仓库路径
+vendor/hpmicro/                       --- vendor 仓库路径
 └── hpm6750evk2                       --- 样例
 ```
 

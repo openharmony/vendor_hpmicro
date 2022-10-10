@@ -74,6 +74,17 @@
 			]
 		},
 		{
+			"subsystem": "security",
+			"components": [
+			  { "component": "huks", "features":
+				[
+				  "huks_use_lite_storage = true",
+				  "huks_config_file = \"hks_config_lite.h\""
+				]
+			  }
+			]
+		  },
+		{
 			"subsystem": "xts",
 			"components": [
 			  {

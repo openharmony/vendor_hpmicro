@@ -83,7 +83,13 @@
 				]
 			  }
 			]
-		  },
+		},   
+        {
+          "subsystem": "updater",
+          "components": [
+            { "component": "ota_lite", "features":[] }
+          ]
+        },
 		{
 			"subsystem": "xts",
 			"components": [

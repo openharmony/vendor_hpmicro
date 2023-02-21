@@ -11,18 +11,22 @@
 		"bootstrap",
 		"broadcast"
 	],
-	"subsystems": [{
+	"subsystems": [
+		{
 			"subsystem": "kernel",
-			"components": [{
-				"component": "liteos_m",
-				"features": [
-					"ohos_kernel_liteos_m_lwip_path = \"//device/board/hpmicro/hpm6750evk2/liteos_m/lwip_adapter\""
-				  ]
-			}]
+			"components": [
+				{
+					"component": "liteos_m",
+					"features": [
+						"ohos_kernel_liteos_m_lwip_path = \"//device/board/hpmicro/hpm6750evk2/liteos_m/lwip_adapter\""
+					]
+				}
+			]
 		},
 		{
 			"subsystem": "startup",
-			"components": [{
+			"components": [
+				{
 					"component": "bootstrap_lite"
 				},
 				{
@@ -36,23 +40,29 @@
 			]
 		},
 		{
-                      "subsystem": "commonlibrary",
-                      "components": [
-                          { "component": "file", "features":[] }
-                      ]
-                },
+			"subsystem": "commonlibrary",
+			"components": [
+				{
+					"component": "file",
+					"features": []
+				}
+			]
+		},
 		{
 			"subsystem": "systemabilitymgr",
-			"components": [{
-				"component": "samgr_lite",
-				"features": [
-					"config_ohos_systemabilitymgr_samgr_lite_shared_task_size = 4096"
-				]
-			}]
+			"components": [
+				{
+					"component": "samgr_lite",
+					"features": [
+						"config_ohos_systemabilitymgr_samgr_lite_shared_task_size = 4096"
+					]
+				}
+			]
 		},
 		{
 			"subsystem": "hiviewdfx",
-			"components": [{
+			"components": [
+				{
 					"component": "hilog_lite",
 					"optional": "true"
 				},
@@ -61,45 +71,28 @@
 					"optional": "true"
 				},
 				{
-				  "component": "hiview_lite",
-				  "features": [
-					"ohos_hiviewdfx_hiview_lite_stack_size = 4096"
-				  ]
+					"component": "hiview_lite",
+					"features": [
+						"ohos_hiviewdfx_hiview_lite_stack_size = 4096"
+					]
 				}
 			]
 		},
 		{
-			"subsystem": "security",
-			"components": [
-			  { "component": "huks", "features":
-				[
-				  "huks_use_lite_storage = true",
-				  "huks_config_file = \"hks_config_lite.h\""
-				]
-			  }
-			]
-		},   
-        {
-          "subsystem": "updater",
-          "components": [
-            { "component": "ota_lite", "features":[] }
-          ]
-        },
-		{
 			"subsystem": "xts",
 			"components": [
-			  {
-				"component": "xts_acts",
-				"features": [
-				  "config_ohos_xts_acts_utils_lite_kv_store_data_path = \"/data\""
-				]
-			  },
-			  {
-				"component": "xts_tools",
-				"features": []
-			  }
+				{
+					"component": "xts_acts",
+					"features": [
+						"config_ohos_xts_acts_utils_lite_kv_store_data_path = \"/data\""
+					]
+				},
+				{
+					"component": "xts_tools",
+					"features": []
+				}
 			]
-		  }
+		}
 	],
 	"third_party_dir": "",
 	"product_adapter_dir": "//vendor/hpmicro/hpm6750evk2/hals",

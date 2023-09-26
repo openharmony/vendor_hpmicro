@@ -1,0 +1,9 @@
+{
+  "parts": {
+    "product_hpm6750evk2": {
+      "module_list": [
+      ]
+    }
+  },
+  "subsystem": "product_hpm6750evk2"
+}

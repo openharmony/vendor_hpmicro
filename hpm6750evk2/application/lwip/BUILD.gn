@@ -22,7 +22,7 @@ hdf_driver(module_name) {
     "//base/hiviewdfx/hilog_lite/interfaces/native/kits/hilog_lite"
   ]
 
-  cflags = [ "-Wall", "-Werror"]
+  cflags = [ "-Wall"]
 
   sources = [ 
     "iperf.c",

@@ -17,7 +17,7 @@
 #include <los_task.h>
 #include <stdint.h>
 #include <log.h>
-#include <lwip/netif.h>
+#include <lwipopts.h>
 #include <lwip/apps/lwiperf.h>
 #include <lwip/netif.h>
 #include <lwip/ip_addr.h>

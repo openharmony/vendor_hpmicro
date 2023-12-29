@@ -18,8 +18,7 @@ module_name = get_path_info(rebase_path("."), "name")
 
 hdf_driver(module_name) {
     special_visibility = [ 
-      "../..",
-      "//device/board/hpmicro"
+      "*"
     ]
     hcs_sources = [ "hdf.hcs" ]
 }

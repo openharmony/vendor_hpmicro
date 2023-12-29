@@ -2,6 +2,8 @@
   "parts": {
     "product_hpm6750evk2": {
       "module_list": [
+        "//vendor/hpmicro/application",
+        "//vendor/hpmicro/hpm6750evk2/hdf_config"
       ]
     }
   },

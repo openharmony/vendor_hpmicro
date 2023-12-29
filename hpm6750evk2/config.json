@@ -79,6 +79,16 @@
 			]
 		},
 		{
+			"subsystem": "product_hpm6750evk2",
+			"components": [
+				{
+					"component": "product_hpm6750evk2",
+					"features": [
+					]
+				}
+			]
+		},
+		{
 			"subsystem": "xts",
 			"components": [
 				{

@@ -17,7 +17,7 @@ import("//drivers/hdf_core/adapter/khdf/liteos_m/hdf.gni")
 module_name = get_path_info(rebase_path("."), "name")
 module_switch = defined(LOSCFG_DRIVERS_HDF_PLATFORM_GPIO)
 
-hdf_driver(module_name) {
+kernel_module(module_name) {
   include_dirs = [ 
     "//base/hiviewdfx/hilog_lite/interfaces/native/kits/hilog_lite"
   ]
@@ -29,4 +29,7 @@ hdf_driver(module_name) {
     "app_gpio_out.c",
     "app_gpio_irq.c",
   ]
+
+  configs += [ "$HDFTOPDIR:public",
+                "$HDFTOPDIR:hdf_config" ]
 }

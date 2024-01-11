@@ -11,12 +11,30 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-import("//kernel/liteos_m/liteos.gni")
-module_name = get_path_info(rebase_path("."), "name")
-module_group(module_name) {
-  modules = [
-    #"watchdog",
-    #"gpio",
-    "lwip",
-  ]
-}
+const.build.characteristics=****
+
+const.product.manufacturer=****
+
+const.product.brand=****
+
+const.product.name=****
+
+const.build.product=****
+
+const.product.model=****
+
+const.software.model=****
+
+const.product.hardwareversion=****
+
+const.product.hardwareprofile="aout:true"
+
+const.ohos.serial=1234567890
+
+const.product.bootloader.version=bootloader
+
+const.product.cpu.abilist=****
+
+const.product.software.version="OpenHarmony 3.1.2"
+
+const.product.firstapiversion=1

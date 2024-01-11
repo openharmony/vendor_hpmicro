@@ -20,6 +20,7 @@
 #include <gpio_if.h>
 #include <hpm_soc.h>
 #include <hpm_clock_drv.h>
+#include <board.h>
 
 #define LOG_TAG "HPM_GPIO_OUT"
 

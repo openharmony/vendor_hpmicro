@@ -1,0 +1,29 @@
+root {
+    platform {
+        
+        config_spi0 :: config_spi {
+            match_attr = "hpmicro_spi0";
+            id = 0;
+            base = 0xF0070000; 
+            clk_freq = 24000000;
+        }
+         config_spi1 :: config_spi {
+            match_attr = "hpmicro_spi1";
+            id = 1;
+            base = 0xF0074000; 
+            clk_freq = 24000000;
+        }
+         config_spi2 :: config_spi {
+            match_attr = "hpmicro_spi2";
+            id = 0;
+            base = 0xF0078000; 
+            clk_freq = 24000000;
+        }
+         config_spi3 :: config_spi {
+            match_attr = "hpmicro_spi3";
+            id = 3;
+            base = 0xF007C000; 
+            clk_freq = 24000000;
+        }
+    }
+}

@@ -1,0 +1,11 @@
+{
+  "parts": {
+    "product_hpm5300evk": {
+      "module_list": [
+        "//vendor/hpmicro/application",
+        "//vendor/hpmicro/hpm5300evk/hdf_config"
+      ]
+    }
+  },
+  "subsystem": "product_hpm5300evk"
+}

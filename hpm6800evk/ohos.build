@@ -1,0 +1,11 @@
+{
+  "parts": {
+    "product_hpm6800evk": {
+      "module_list": [
+        "//vendor/hpmicro/application",
+        "//vendor/hpmicro/hpm6800evk/hdf_config"
+      ]
+    }
+  },
+  "subsystem": "product_hpm6800evk"
+}

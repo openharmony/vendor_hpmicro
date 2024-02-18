@@ -24,54 +24,36 @@
 
 #define LOG_TAG "HPM_GPIO_OUT"
 
-#define GPIOA(pin) (pin)
-#define GPIOB(pin) (pin + 32)
-#define GPIOC(pin) (pin + 32 * 2)
-#define GPIOD(pin) (pin + 32 * 3)
-#define GPIOE(pin) (pin + 32 * 4)
-#define GPIOF(pin) (pin + 32 * 5)
-#define GPIOY(pin) (pin + 32 * 14)
-#define GPIOZ(pin) (pin + 32 * 15)
-
 static void *GpioDriverInTestTask(unsigned int arg)
 {
     HILOG_INFO(HILOG_MODULE_APP, "GpioDriverInTestTask");
 
-    HPM_BIOC->PAD[IOC_PAD_PZ02].FUNC_CTL = IOC_PZ02_FUNC_CTL_SOC_PZ_02;
-    HPM_BIOC->PAD[IOC_PAD_PZ02].PAD_CTL = IOC_PAD_PAD_CTL_PE_SET(1) | IOC_PAD_PAD_CTL_PS_SET(1) | IOC_PAD_PAD_CTL_SMT_SET(1);
-    HPM_BIOC->PAD[IOC_PAD_PZ03].FUNC_CTL = IOC_PZ03_FUNC_CTL_SOC_PZ_03;
-    HPM_BIOC->PAD[IOC_PAD_PZ03].PAD_CTL = IOC_PAD_PAD_CTL_PE_SET(1) | IOC_PAD_PAD_CTL_PS_SET(1) | IOC_PAD_PAD_CTL_SMT_SET(1);
-    
-    HPM_IOC->PAD[IOC_PAD_PZ02].FUNC_CTL = 0;
-    HPM_IOC->PAD[IOC_PAD_PZ02].PAD_CTL = IOC_PAD_PAD_CTL_PE_SET(1) | IOC_PAD_PAD_CTL_PS_SET(1) | IOC_PAD_PAD_CTL_SMT_SET(1);
+    init_gpio_pins();
 
-    HPM_IOC->PAD[IOC_PAD_PZ03].FUNC_CTL = 0;
-    HPM_IOC->PAD[IOC_PAD_PZ03].PAD_CTL = IOC_PAD_PAD_CTL_PE_SET(1) | IOC_PAD_PAD_CTL_PS_SET(1) | IOC_PAD_PAD_CTL_SMT_SET(1);
+    GpioSetDir(BOARD_GPIO_IN_IRQ_TASK_GPIO1, GPIO_DIR_IN);
+    GpioSetDir(BOARD_GPIO_IN_IRQ_TASK_GPIO2, GPIO_DIR_IN);
 
-    GpioSetDir(GPIOZ(2), GPIO_DIR_IN);
-    GpioSetDir(GPIOZ(3), GPIO_DIR_IN);
-
-    uint32_t pz02_flag = GPIO_VAL_HIGH;
-    uint32_t pz03_flag = GPIO_VAL_HIGH;
+    uint32_t gpio1_flag = GPIO_VAL_HIGH;
+    uint32_t gpio2_flag = GPIO_VAL_HIGH;
 
     while (1) {
         uint16_t val;
-        GpioRead(GPIOZ(2), &val);
-        if (val == GPIO_VAL_LOW && pz02_flag == GPIO_VAL_HIGH) {
-            pz02_flag = GPIO_VAL_LOW;
-            HILOG_INFO(HILOG_MODULE_APP, "GPIOZ(2) DOWN");
-        } else if (val == GPIO_VAL_HIGH && pz02_flag == GPIO_VAL_LOW) {
-            pz02_flag = GPIO_VAL_HIGH;
-            HILOG_INFO(HILOG_MODULE_APP, "GPIOZ(2) UP");
+        GpioRead(BOARD_GPIO_IN_IRQ_TASK_GPIO1, &val);
+        if (val == GPIO_VAL_LOW && gpio1_flag == GPIO_VAL_HIGH) {
+            gpio1_flag = GPIO_VAL_LOW;
+            HILOG_INFO(HILOG_MODULE_APP, "GPIO1 DOWN");
+        } else if (val == GPIO_VAL_HIGH && gpio1_flag == GPIO_VAL_LOW) {
+            gpio1_flag = GPIO_VAL_HIGH;
+            HILOG_INFO(HILOG_MODULE_APP, "GPIO2 UP");
         }
 
-        GpioRead(GPIOZ(3), &val);
-        if (val == GPIO_VAL_LOW && pz03_flag == GPIO_VAL_HIGH) {
-            pz03_flag = GPIO_VAL_LOW;
-            HILOG_INFO(HILOG_MODULE_APP, "GPIOZ(3) DOWN");
-        } else if (val == GPIO_VAL_HIGH && pz03_flag == GPIO_VAL_LOW) {
-            pz03_flag = GPIO_VAL_HIGH;
-            HILOG_INFO(HILOG_MODULE_APP, "GPIOZ(3) UP");
+        GpioRead(BOARD_GPIO_IN_IRQ_TASK_GPIO2, &val);
+        if (val == GPIO_VAL_LOW && gpio2_flag == GPIO_VAL_HIGH) {
+            gpio2_flag = GPIO_VAL_LOW;
+            HILOG_INFO(HILOG_MODULE_APP, "GPIO1 DOWN");
+        } else if (val == GPIO_VAL_HIGH && gpio2_flag == GPIO_VAL_LOW) {
+            gpio2_flag = GPIO_VAL_HIGH;
+            HILOG_INFO(HILOG_MODULE_APP, "GPIO2 UP");
         }
 
         LOS_TaskDelay(50);

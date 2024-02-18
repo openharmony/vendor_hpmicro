@@ -13,16 +13,6 @@ root {
         config_watch2 :: config_watchdog {
             match_attr = "hpmicro_watchdog2";
             id = 2;
-            base = 0xF0098000;
-        }
-        config_watch3 :: config_watchdog {
-            match_attr = "hpmicro_watchdog3";
-            id = 3;
-            base = 0xF009C000;
-        }
-        config_watch4 :: config_watchdog {
-            match_attr = "hpmicro_watchdog4";
-            id = 4;
             base = 0xF40E8000;
         }
     }

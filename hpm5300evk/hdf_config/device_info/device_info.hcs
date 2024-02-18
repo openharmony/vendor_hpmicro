@@ -26,8 +26,8 @@ root {
                     priority = 20;
                     permission = 0644; 
                     moduleName = "HPMICRO_WATCHDOG_MODULE_HDF";
-                    serviceName = "HDF_PLATFORM_WATCHDOG_1";
-                    deviceMatchAttr = "hpmicro_watchdog1";
+                    serviceName = "HDF_PLATFORM_WATCHDOG_2";
+                    deviceMatchAttr = "hpmicro_watchdog2";
                 }
             }
 

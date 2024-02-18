@@ -20,47 +20,32 @@
 #include <gpio_if.h>
 #include <hpm_soc.h>
 #include <hpm_clock_drv.h>
+#include <board.h>
 
 #define LOG_TAG "HPM_GPIO_OUT"
-
-#define GPIOA(pin) (pin)
-#define GPIOB(pin) (pin + 32)
-#define GPIOC(pin) (pin + 32 * 2)
-#define GPIOD(pin) (pin + 32 * 3)
-#define GPIOE(pin) (pin + 32 * 4)
-#define GPIOF(pin) (pin + 32 * 5)
-#define GPIOY(pin) (pin + 32 * 14)
-#define GPIOZ(pin) (pin + 32 * 15)
 
 static void *GpioDriverOutTestTask(unsigned int arg)
 {
     HILOG_INFO(HILOG_MODULE_APP, "GpioDriverOutTestTask");
 
-    HPM_IOC->PAD[IOC_PAD_PB11].FUNC_CTL = 0;
-    HPM_IOC->PAD[IOC_PAD_PB11].PAD_CTL = IOC_PAD_PAD_CTL_PE_SET(1) | IOC_PAD_PAD_CTL_PS_SET(1);
+    init_gpio_out_task_pins();
 
-    HPM_IOC->PAD[IOC_PAD_PB12].FUNC_CTL = 0;
-    HPM_IOC->PAD[IOC_PAD_PB12].PAD_CTL = IOC_PAD_PAD_CTL_PE_SET(1) | IOC_PAD_PAD_CTL_PS_SET(1);
-
-    HPM_IOC->PAD[IOC_PAD_PB13].FUNC_CTL = 0;
-    HPM_IOC->PAD[IOC_PAD_PB13].PAD_CTL = IOC_PAD_PAD_CTL_PE_SET(1) | IOC_PAD_PAD_CTL_PS_SET(1);
-
-    GpioSetDir(GPIOB(11), GPIO_DIR_OUT);
-    GpioSetDir(GPIOB(12), GPIO_DIR_OUT);
-    GpioSetDir(GPIOB(13), GPIO_DIR_OUT);
+    GpioSetDir(BOARD_GPIO_OUT_TASK_GPIO1, GPIO_DIR_OUT);
+    GpioSetDir(BOARD_GPIO_OUT_TASK_GPIO2, GPIO_DIR_OUT);
+    GpioSetDir(BOARD_GPIO_OUT_TASK_GPIO3, GPIO_DIR_OUT);
 
     while (1) {
-        GpioWrite(GPIOB(11), GPIO_VAL_LOW);
+        GpioWrite(BOARD_GPIO_OUT_TASK_GPIO1, GPIO_VAL_LOW);
         LOS_TaskDelay(500);
-        GpioWrite(GPIOB(11), GPIO_VAL_HIGH);
+        GpioWrite(BOARD_GPIO_OUT_TASK_GPIO1, GPIO_VAL_HIGH);
         LOS_TaskDelay(500);
-        GpioWrite(GPIOB(12), GPIO_VAL_LOW);
+        GpioWrite(BOARD_GPIO_OUT_TASK_GPIO2, GPIO_VAL_LOW);
         LOS_TaskDelay(500);
-        GpioWrite(GPIOB(12), GPIO_VAL_HIGH);
+        GpioWrite(BOARD_GPIO_OUT_TASK_GPIO2, GPIO_VAL_HIGH);
         LOS_TaskDelay(500);
-        GpioWrite(GPIOB(13), GPIO_VAL_LOW);
+        GpioWrite(BOARD_GPIO_OUT_TASK_GPIO3, GPIO_VAL_LOW);
         LOS_TaskDelay(500);
-        GpioWrite(GPIOB(13), GPIO_VAL_HIGH);
+        GpioWrite(BOARD_GPIO_OUT_TASK_GPIO3, GPIO_VAL_HIGH);
         LOS_TaskDelay(500);
     }
     return NULL;

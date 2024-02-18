@@ -10,5 +10,10 @@ root {
             id = 1;
             base = 0xF00B4000;
         }
+        config_watch2 :: config_watchdog {
+            match_attr = "hpmicro_watchdog2";
+            id = 2;
+            base = 0xF4128000;
+        }
     }
 }

@@ -202,7 +202,7 @@ static void *I2CDriverApiSlaveTask(unsigned int arg)
     return NULL;
 }
 
-void show_menu(void)
+static void show_menu(void)
 {
     static const char menu_info[] = "\n"
                                     "****************************************************************\n"

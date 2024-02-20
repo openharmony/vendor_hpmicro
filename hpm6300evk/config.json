@@ -1,0 +1,109 @@
+{
+	"product_name": "hpm6300evk",
+	"type": "mini",
+	"version": "3.0",
+	"ohos_version": "OpenHarmony 3.1",
+	"device_company": "hpmicro",
+	"board": "hpm6300evk",
+	"kernel_type": "liteos_m",
+	"kernel_version": "3.0.0",
+	"force_link_libs": [
+		"bootstrap",
+		"broadcast"
+	],
+	"subsystems": [
+		{
+			"subsystem": "kernel",
+			"components": [
+				{
+					"component": "liteos_m",
+					"features": [
+						"ohos_kernel_liteos_m_lwip_path = \"//device/board/hpmicro/hpm6300evk/liteos_m/lwip_adapter\""
+					]
+				}
+			]
+		},
+		{
+			"subsystem": "startup",
+			"components": [
+				{
+					"component": "bootstrap_lite"
+				},
+				{
+					"component": "init_lite",
+					"features": [
+						"enable_ohos_startup_init_feature_begetctl_liteos = true",
+						"enable_ohos_startup_init_lite_use_posix_file_api = true",
+						"config_ohos_startup_init_lite_data_path = \"/data/\""
+					]
+				}
+			]
+		},
+		{
+			"subsystem": "commonlibrary",
+			"components": [
+				{
+					"component": "utils_lite",
+					"features":[ "utils_lite_feature_file = true" ]
+				}
+			]
+		},
+		{
+			"subsystem": "systemabilitymgr",
+			"components": [
+				{
+					"component": "samgr_lite",
+					"features": [
+						"config_ohos_systemabilitymgr_samgr_lite_shared_task_size = 4096"
+					]
+				}
+			]
+		},
+		{
+			"subsystem": "hiviewdfx",
+			"components": [
+				{
+					"component": "hilog_lite",
+					"optional": "true"
+				},
+				{
+					"component": "hievent_lite",
+					"optional": "true"
+				},
+				{
+					"component": "hiview_lite",
+					"features": [
+						"ohos_hiviewdfx_hiview_lite_stack_size = 4096"
+					]
+				}
+			]
+		},
+		{
+			"subsystem": "product_hpm6300evk",
+			"components": [
+				{
+					"component": "product_hpm6300evk",
+					"features": [
+					]
+				}
+			]
+		},
+		{
+			"subsystem": "xts",
+			"components": [
+				{
+					"component": "acts",
+					"features": [
+					]
+				},
+				{
+					"component": "tools",
+					"features": []
+				}
+			]
+		}
+	],
+	"third_party_dir": "",
+	"product_adapter_dir": "//vendor/hpmicro/hpm6300evk/hals",
+	"vendor_adapter_dir": "//device/soc/hpmicro/hpm6300"
+}

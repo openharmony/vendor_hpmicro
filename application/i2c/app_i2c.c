@@ -33,7 +33,6 @@ struct HPMI2cDevice {
 };
 
 #define TEST_I2C_SLAVE_ADDRESS  (0x16U)
-#define I2C_BUS_NUM (0)
 #define TEST_TRANSFER_DATA_IN_BYTE  (128U)
 uint8_t trx_buff[TEST_TRANSFER_DATA_IN_BYTE];
 uint8_t tx_buff[TEST_TRANSFER_DATA_IN_BYTE];

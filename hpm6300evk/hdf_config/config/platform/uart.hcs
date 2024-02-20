@@ -1,5 +1,5 @@
 root {
-    platform {     
+    platform {
         config_uart2 :: config_uart {
             match_attr = "hpmicro_uart2";
             id = 2;

@@ -94,13 +94,13 @@ root {
             }
 
             device_spi :: device {
-                device0 :: deviceNode {
+                device2 :: deviceNode {
                     policy = 2;
                     priority = 20;
                     permission = 0644; 
                     moduleName = "HPMICRO_SPI_MODULE_HDF";
-                    serviceName = "HDF_PLATFORM_SPI_0";
-                    deviceMatchAttr = "hpmicro_spi0";
+                    serviceName = "HDF_PLATFORM_SPI_2";
+                    deviceMatchAttr = "hpmicro_spi2";
                 }
             }
         }

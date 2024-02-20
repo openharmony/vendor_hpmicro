@@ -29,14 +29,6 @@ root {
                     serviceName = "HDF_PLATFORM_WATCHDOG_2";
                     deviceMatchAttr = "hpmicro_watchdog2";
                 }
-                device4 :: deviceNode {
-                    policy = 2;
-                    priority = 20;
-                    permission = 0644; 
-                    moduleName = "HPMICRO_WATCHDOG_MODULE_HDF";
-                    serviceName = "HDF_PLATFORM_WATCHDOG_4";
-                    deviceMatchAttr = "hpmicro_watchdog4";
-                }
             }
 
             device_gpio :: device {
@@ -94,13 +86,13 @@ root {
             }
 
             device_spi :: device {
-                device0 :: deviceNode {
+                device1 :: deviceNode {
                     policy = 2;
                     priority = 20;
                     permission = 0644; 
                     moduleName = "HPMICRO_SPI_MODULE_HDF";
-                    serviceName = "HDF_PLATFORM_SPI_0";
-                    deviceMatchAttr = "hpmicro_spi0";
+                    serviceName = "HDF_PLATFORM_SPI_1";
+                    deviceMatchAttr = "hpmicro_spi1";
                 }
             }
         }

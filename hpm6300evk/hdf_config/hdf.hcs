@@ -1,0 +1,8 @@
+#include "device_info/device_info.hcs"
+#include "../../../../device/soc/hpmicro/hcs/hpm6300/hpm6360.hcs"
+#include "config/platform/watchdog.hcs"
+#include "config/platform/gpio.hcs"
+#include "config/platform/uart.hcs"
+#include "config/platform/i2c.hcs"
+#include "config/platform/spi.hcs"
+

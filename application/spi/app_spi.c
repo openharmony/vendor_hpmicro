@@ -26,7 +26,7 @@
 #define SPI_MAX_SPEED             10000000
 #define BUFF_NUM             10
 
-spi_control_config_t control_config = {0};
+extern spi_control_config_t control_config;
 
 uint8_t wbuff[BUFF_NUM] = {0xa0, 0xa1, 0xa2, 0xa3, 0xa4, 0xa5, 0xa6, 0xa7, 0xa8, 0xa9};
 uint8_t rbuff[BUFF_NUM] = {0};
@@ -50,7 +50,7 @@ static DevHandle GetSpiHandle(void)
     struct SpiDevInfo spiDevinfo;
     struct SpiCfg cfg;
 
-    spiDevinfo.busNum = 0;
+    spiDevinfo.busNum = spi_device_num;
     spiDevinfo.csNum = 0;
     spiHandle = SpiOpen(&spiDevinfo);
     if (spiHandle == NULL) {

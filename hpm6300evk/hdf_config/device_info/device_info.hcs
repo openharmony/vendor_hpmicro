@@ -1,5 +1,5 @@
 root {
-    module = "hpmicro,hpm6880";
+    module = "hpmicro,hpm6300";
     device_info {
         match_attr = "hdf_manager";
         template host {
@@ -75,13 +75,13 @@ root {
                     moduleName = "HDF_PLATFORM_I2C_MANAGER";
                     serviceName = "HDF_PLATFORM_I2C_MANAGER";
                 }
-                device1 :: deviceNode {
+                device0 :: deviceNode {
                     policy = 0;
                     priority = 20;
                     permission = 0644; 
                     moduleName = "HPMICRO_I2C_MODULE_HDF";
-                    serviceName = "HDF_PLATFORM_I2C_1";
-                    deviceMatchAttr = "hpmicro_i2c1";
+                    serviceName = "HDF_PLATFORM_I2C_0";
+                    deviceMatchAttr = "hpmicro_i2c0";
                 }
             }
 

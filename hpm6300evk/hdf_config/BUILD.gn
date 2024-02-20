@@ -11,14 +11,15 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-import("//kernel/liteos_m/liteos.gni")
+import("//drivers/hdf_core/adapter/khdf/liteos_m/hdf.gni")
+
+module_switch = defined(LOSCFG_DRIVERS_HDF)
 module_name = get_path_info(rebase_path("."), "name")
-module_group(module_name) {
-  modules = [
-    "watchdog",
-    "gpio",
-    "lwip",
-    "i2c",
-    "spi",
-  ]
+
+hdf_driver(module_name) {
+    special_visibility = [ 
+      "*"
+    ]
+    hcs_sources = [ "hdf.hcs" ]
 }
+

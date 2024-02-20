@@ -39,12 +39,12 @@ root {
                     moduleName = "HPMICRO_GPIO_MODULE_HDF";
                     deviceMatchAttr = "hpmicro_gpio_b";
                 }
-                gpio_z :: deviceNode {
+                gpio_f :: deviceNode {
                     policy = 0;
                     priority = 10;
                     permission = 0644; 
                     moduleName = "HPMICRO_GPIO_MODULE_HDF";
-                    deviceMatchAttr = "hpmicro_gpio_z";
+                    deviceMatchAttr = "hpmicro_gpio_f";
                 }
             }
 

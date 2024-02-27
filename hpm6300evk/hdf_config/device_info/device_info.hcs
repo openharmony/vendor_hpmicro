@@ -32,6 +32,13 @@ root {
             }
 
             device_gpio :: device {
+                gpio_a :: deviceNode {
+                    policy = 0;
+                    priority = 10;
+                    permission = 0644; 
+                    moduleName = "HPMICRO_GPIO_MODULE_HDF";
+                    deviceMatchAttr = "hpmicro_gpio_a";
+                }
                 gpio_b :: deviceNode {
                     policy = 0;
                     priority = 10;

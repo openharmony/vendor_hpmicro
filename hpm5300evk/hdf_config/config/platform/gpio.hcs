@@ -2,7 +2,7 @@ root {
     platform {
         config_gpio_a :: config_gpio {
             match_attr = "hpmicro_gpio_a";
-            base = 0xF0000000; 
+            base = 0xF00D0000; 
             name = "GPIO0_PA"; 
             port_num = 0; /* gpio controler number, eg: PA is 0, PB is 1, .... */
             irq_num = 1; /* IRQn_GPIO0_A */
@@ -10,26 +10,26 @@ root {
         }
         config_gpio_b :: config_gpio {
             match_attr = "hpmicro_gpio_b";
-            base = 0xF0000000; 
+            base = 0xF00D0000; 
             name = "GPIO0_PB"; 
             port_num = 1; /* gpio controler number, eg: PA is 0, PB is 1, .... */
             irq_num = 2; /* IRQn_GPIO0_B */
             count = 32; /* gpio pin count */
         }
-        config_gpio_f :: config_gpio {
+        config_gpio_x :: config_gpio {
             match_attr = "hpmicro_gpio_x";
-            base = 0xF0000000; 
+            base = 0xF00D0000; 
             name = "GPIO0_PX"; 
-            port_num = 13; /* gpio controler number, eg: PA is 0, PB is 1, .... */
-            irq_num = 7; /* IRQn_GPIO0_X */
+            port_num = 2; /* gpio controler number, eg: PA is 0, PB is 1, .... */
+            irq_num = 3; /* IRQn_GPIO0_X */
             count = 32; /* gpio pin count */
         }
         config_gpio_y :: config_gpio {
             match_attr = "hpmicro_gpio_y";
-            base = 0xF0000000; 
+            base = 0xF00D0000; 
             name = "GPIO0_PY"; 
-            port_num = 14; /* gpio controler number, eg: PA is 0, PB is 1, .... */
-            irq_num = 8; /* IRQn_GPIO0_Y */
+            port_num = 3; /* gpio controler number, eg: PA is 0, PB is 1, .... */
+            irq_num = 4; /* IRQn_GPIO0_Y */
             count = 32; /* gpio pin count */
         }
     }

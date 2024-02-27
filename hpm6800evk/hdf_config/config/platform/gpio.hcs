@@ -2,7 +2,7 @@ root {
     platform {
         config_gpio_a :: config_gpio {
             match_attr = "hpmicro_gpio_a";
-            base = 0xF0000000; 
+            base = 0xF00D0000; 
             name = "GPIO0_PA"; 
             port_num = 0; /* gpio controler number, eg: PA is 0, PB is 1, .... */
             irq_num = 1; /* IRQn_GPIO0_A */
@@ -10,7 +10,7 @@ root {
         }
         config_gpio_b :: config_gpio {
             match_attr = "hpmicro_gpio_b";
-            base = 0xF0000000; 
+            base = 0xF00D0000; 
             name = "GPIO0_PB"; 
             port_num = 1; /* gpio controler number, eg: PA is 0, PB is 1, .... */
             irq_num = 2; /* IRQn_GPIO0_B */
@@ -18,7 +18,7 @@ root {
         }
         config_gpio_c :: config_gpio {
             match_attr = "hpmicro_gpio_c";
-            base = 0xF0000000; 
+            base = 0xF00D0000; 
             name = "GPIO0_PC"; 
             port_num = 2; /* gpio controler number, eg: PA is 0, PB is 1, .... */
             irq_num = 3; /* IRQn_GPIO0_C */
@@ -26,7 +26,7 @@ root {
         }
         config_gpio_d :: config_gpio {
             match_attr = "hpmicro_gpio_d";
-            base = 0xF0000000; 
+            base = 0xF00D0000; 
             name = "GPIO0_PD"; 
             port_num = 3; /* gpio controler number, eg: PA is 0, PB is 1, .... */
             irq_num = 4; /* IRQn_GPIO0_D */
@@ -34,7 +34,7 @@ root {
         }
         config_gpio_e :: config_gpio {
             match_attr = "hpmicro_gpio_e";
-            base = 0xF0000000; 
+            base = 0xF00D0000; 
             name = "GPIO0_PE"; 
             port_num = 4; /* gpio controler number, eg: PA is 0, PB is 1, .... */
             irq_num = 5; /* IRQn_GPIO0_E*/
@@ -42,7 +42,7 @@ root {
         }
         config_gpio_f :: config_gpio {
             match_attr = "hpmicro_gpio_f";
-            base = 0xF0000000; 
+            base = 0xF00D0000; 
             name = "GPIO0_PF"; 
             port_num = 5; /* gpio controler number, eg: PA is 0, PB is 1, .... */
             irq_num = 6; /* IRQn_GPIO0_F */
@@ -50,7 +50,7 @@ root {
         }
         config_gpio_y :: config_gpio {
             match_attr = "hpmicro_gpio_y";
-            base = 0xF0000000; 
+            base = 0xF00D0000; 
             name = "GPIO0_PY"; 
             port_num = 14; /* gpio controler number, eg: PA is 0, PB is 1, .... */
             irq_num = 8; /* IRQn_GPIO0_Y */
@@ -58,7 +58,7 @@ root {
         }
         config_gpio_z :: config_gpio {
             match_attr = "hpmicro_gpio_z";
-            base = 0xF0000000; 
+            base = 0xF00D0000; 
             name = "GPIO0_PZ"; 
             port_num = 15; /* gpio controler number, eg: PA is 0, PB is 1, .... */
             irq_num = 9; /* IRQn_GPIO0_Z */

@@ -32,20 +32,12 @@ root {
             irq_num = 4; /* IRQn_GPIO0_D */
             count = 32; /* gpio pin count */
         }
-        config_gpio_e :: config_gpio {
-            match_attr = "hpmicro_gpio_e";
+        config_gpio_x :: config_gpio {
+            match_attr = "hpmicro_gpio_x";
             base = 0xF0000000; 
-            name = "GPIO0_PE"; 
-            port_num = 4; /* gpio controler number, eg: PA is 0, PB is 1, .... */
-            irq_num = 5; /* IRQn_GPIO0_E*/
-            count = 32; /* gpio pin count */
-        }
-        config_gpio_f :: config_gpio {
-            match_attr = "hpmicro_gpio_f";
-            base = 0xF0000000; 
-            name = "GPIO0_PF"; 
-            port_num = 5; /* gpio controler number, eg: PA is 0, PB is 1, .... */
-            irq_num = 6; /* IRQn_GPIO0_F */
+            name = "GPIO0_PX"; 
+            port_num = 13; /* gpio controler number, eg: PA is 0, PB is 1, .... */
+            irq_num = 5; /* IRQn_GPIO0_F */
             count = 32; /* gpio pin count */
         }
         config_gpio_y :: config_gpio {
@@ -53,7 +45,7 @@ root {
             base = 0xF0000000; 
             name = "GPIO0_PY"; 
             port_num = 14; /* gpio controler number, eg: PA is 0, PB is 1, .... */
-            irq_num = 8; /* IRQn_GPIO0_Y */
+            irq_num = 6; /* IRQn_GPIO0_Y */
             count = 32; /* gpio pin count */
         }
         config_gpio_z :: config_gpio {
@@ -61,7 +53,7 @@ root {
             base = 0xF0000000; 
             name = "GPIO0_PZ"; 
             port_num = 15; /* gpio controler number, eg: PA is 0, PB is 1, .... */
-            irq_num = 9; /* IRQn_GPIO0_Z */
+            irq_num = 7; /* IRQn_GPIO0_Z */
             count = 32; /* gpio pin count */
         }
     }

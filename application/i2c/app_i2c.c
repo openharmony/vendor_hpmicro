@@ -86,7 +86,7 @@ int cmd_i2c_master(void)
     return 0; 
 }
 
-void app_cmd_init(void) 
+static void app_cmd_init(void) 
 {        
     osCmdReg(CMD_TYPE_EX, "i2cm", 0,(CMD_CBK_FUNC)cmd_i2c_master);
     osCmdReg(CMD_TYPE_EX, "i2cs", 0,(CMD_CBK_FUNC)cmd_i2c_slave);
@@ -148,6 +148,9 @@ static void *I2CDriverApiMasterTask(unsigned int arg)
 
     printf("I2C Master Test Case ~~~ !\n");
 
+    memset(tx_buff, 0, TEST_TRANSFER_DATA_IN_BYTE);
+    memset(trx_buff, 0, TEST_TRANSFER_DATA_IN_BYTE);
+
     prepare_tx_data();
 
     // msgs[0] write regaddr to adapter
@@ -186,6 +189,8 @@ static void *I2CDriverApiSlaveTask(unsigned int arg)
     if (stat != status_success) {
         printf("I2C slave init failed~~~ !\n");
     }
+
+    memset(rrx_buff, 0, TEST_TRANSFER_DATA_IN_BYTE);
 
     printf("I2C Slave Test Case, will sent back the received data ~~~ !\n");
 

@@ -21,21 +21,13 @@ root {
             hostName = "platform_host";
             priority = 50;
             device_watchdog :: device {
-                device2 :: deviceNode {
+                device0 :: deviceNode {
                     policy = 2;
                     priority = 20;
                     permission = 0644; 
                     moduleName = "HPMICRO_WATCHDOG_MODULE_HDF";
-                    serviceName = "HDF_PLATFORM_WATCHDOG_2";
-                    deviceMatchAttr = "hpmicro_watchdog2";
-                }
-                device4 :: deviceNode {
-                    policy = 2;
-                    priority = 20;
-                    permission = 0644; 
-                    moduleName = "HPMICRO_WATCHDOG_MODULE_HDF";
-                    serviceName = "HDF_PLATFORM_WATCHDOG_4";
-                    deviceMatchAttr = "hpmicro_watchdog4";
+                    serviceName = "HDF_PLATFORM_WATCHDOG_0";
+                    deviceMatchAttr = "hpmicro_watchdog0";
                 }
             }
 

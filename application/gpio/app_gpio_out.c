@@ -58,7 +58,7 @@ static void GpioDriverTest(void)
     taskInitParam.pcName = "gpio_out_test";
     taskInitParam.pfnTaskEntry = GpioDriverOutTestTask;
     taskInitParam.stackAddr = 0;
-    taskInitParam.uwStackSize = 8192;
+    taskInitParam.uwStackSize = 4096;
     taskInitParam.usTaskPrio = 20;
     taskInitParam.uwArg = 0x66;
     UINT32 taskID;

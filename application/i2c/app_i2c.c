@@ -32,6 +32,11 @@ struct HPMI2cDevice {
     uint32_t clkFreq;
 };
 
+typedef enum {
+    MASTER = 0,
+    SLAVE
+} I2C_TYPE;
+
 #define TEST_I2C_SLAVE_ADDRESS  (0x16U)
 #define TEST_TRANSFER_DATA_IN_BYTE  (128U)
 uint8_t trx_buff[TEST_TRANSFER_DATA_IN_BYTE];
@@ -42,7 +47,7 @@ static void *I2CDriverApiMasterTask(unsigned int arg);
 static void *I2CDriverApiSlaveTask(unsigned int arg);
 int32_t hpmReceive(struct I2cCntlr *cntlr, struct I2cMsg *msgs, int16_t count);
 
-uint8_t I2C_CMD ='0';
+I2C_TYPE i2c_type;
 static DevHandle i2c_handle;
 static I2C_Type *i2c_base; 
 
@@ -51,13 +56,13 @@ static void I2CModeSelect(void)
     TSK_INIT_PARAM_S taskInitParam = {0};
     UINT32 taskID;
 
-    switch (I2C_CMD) {
-    case '1':
+    switch (i2c_type) {
+    case MASTER:
         taskInitParam.pcName = "i2c_master_test";
         printf("I2C switch to master mode\n");
         taskInitParam.pfnTaskEntry = I2CDriverApiMasterTask;
         break;
-    case '2':
+    case SLAVE:
         taskInitParam.pcName = "i2c_slave_test";
         printf("I2C switch to slave mode\n");
         taskInitParam.pfnTaskEntry = I2CDriverApiSlaveTask;
@@ -74,14 +79,14 @@ static void I2CModeSelect(void)
 
 int cmd_i2c_slave(void) 
 {     
-    I2C_CMD = '2';
+    i2c_type = SLAVE;
     I2CModeSelect();
     return 0; 
 }
 
 int cmd_i2c_master(void) 
 {     
-    I2C_CMD = '1';
+    i2c_type = MASTER;
     I2CModeSelect();
     return 0; 
 }

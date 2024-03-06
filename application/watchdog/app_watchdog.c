@@ -23,23 +23,26 @@
 #include "shcmd.h" 
 
 #define LOG_TAG "HPM_WDG"
-int wdg_reset_flag =0;
-uint8_t WDG_CMD ='0';
 static void *WatchdogDriverApiTask(unsigned int arg);
+
+typedef enum {
+    FEED_WDG = 0,
+    NO_FEED_EDG
+} WDG_CMD_FEED_STATUS;
+
+WDG_CMD_FEED_STATUS wdg_feed_status;
 
 static void wdg_task_select(void)
 {
     TSK_INIT_PARAM_S taskInitParam = {0};
     UINT32 taskID;
 
-    switch (WDG_CMD) {
-    case '1':
-        wdg_reset_flag = 0;
+    switch (wdg_feed_status) {
+    case FEED_WDG:
         taskInitParam.pcName = "wdg_feed_test";
         printf("enable wdg and feed case\n");
         break;
-    case '2':
-        wdg_reset_flag = 1;
+    case NO_FEED_EDG:
         taskInitParam.pcName = "wdg_reset_test";
         printf("enable wdg but no feed case\n");
         break;
@@ -56,14 +59,14 @@ static void wdg_task_select(void)
 
 int cmd_wdg_feed(void) 
 {     
-    WDG_CMD = '1';
+    wdg_feed_status = FEED_WDG;
     wdg_task_select();
     return 0; 
 }
 
 int cmd_wdg_reset(void) 
 {     
-    WDG_CMD = '2';
+    wdg_feed_status = NO_FEED_EDG;
     wdg_task_select();
     return 0; 
 }
@@ -104,7 +107,7 @@ static void *WatchdogDriverApiTask(unsigned int arg)
         HILOG_ERROR(HILOG_MODULE_APP, "WatchdogGetStatus expect <WATCHDOG_START>");
     }
 
-    if(wdg_reset_flag)
+    if(wdg_feed_status)
     {
         printf("this case will not feed dog,system will reset after 3 seconds!\n");
     }
@@ -112,7 +115,7 @@ static void *WatchdogDriverApiTask(unsigned int arg)
     uint32_t cnt = 3;
     while (cnt--) {
         HILOG_INFO(HILOG_MODULE_APP, "WatchdogFeed");
-        if(!wdg_reset_flag)
+        if(!wdg_feed_status)
         {
             printf("will feed dog \n");
             WatchdogFeed(handle);

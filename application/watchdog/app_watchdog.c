@@ -19,7 +19,60 @@
 #include <log.h>
 #include <watchdog_if.h>
 
+#include "shell.h" 
+#include "shcmd.h" 
+
 #define LOG_TAG "HPM_WDG"
+int wdg_reset_flag =0;
+uint8_t WDG_CMD ='0';
+static void *WatchdogDriverApiTask(unsigned int arg);
+
+static void wdg_task_select(void)
+{
+    TSK_INIT_PARAM_S taskInitParam = {0};
+    UINT32 taskID;
+
+    switch (WDG_CMD) {
+    case '1':
+        wdg_reset_flag = 0;
+        taskInitParam.pcName = "wdg_feed_test";
+        printf("enable wdg and feed case\n");
+        break;
+    case '2':
+        wdg_reset_flag = 1;
+        taskInitParam.pcName = "wdg_reset_test";
+        printf("enable wdg but no feed case\n");
+        break;
+
+    }
+    
+    taskInitParam.pfnTaskEntry = WatchdogDriverApiTask;
+    taskInitParam.stackAddr = 0;
+    taskInitParam.uwStackSize = 4096;
+    taskInitParam.usTaskPrio = 20;
+    taskInitParam.uwArg = 0x66;
+    LOS_TaskCreate(&taskID, &taskInitParam);
+}
+
+int cmd_wdg_feed(void) 
+{     
+    WDG_CMD = '1';
+    wdg_task_select();
+    return 0; 
+}
+
+int cmd_wdg_reset(void) 
+{     
+    WDG_CMD = '2';
+    wdg_task_select();
+    return 0; 
+}
+
+static void app_cmd_init(void) 
+{        
+    osCmdReg(CMD_TYPE_EX, "wdg", 0,(CMD_CBK_FUNC)cmd_wdg_feed);
+    osCmdReg(CMD_TYPE_EX, "wdg_reset", 0,(CMD_CBK_FUNC)cmd_wdg_reset);
+}
 
 static void *WatchdogDriverApiTask(unsigned int arg)
 {
@@ -28,7 +81,7 @@ static void *WatchdogDriverApiTask(unsigned int arg)
     int32_t status;
     uint32_t seconds;
     int ret;
-    ret = WatchdogOpen(2,  &handle);
+    ret = WatchdogOpen(0,  &handle);
     if (ret) {
         HILOG_ERROR(HILOG_MODULE_APP, "WatchdogOpen: %d", ret);
         return NULL;
@@ -51,10 +104,19 @@ static void *WatchdogDriverApiTask(unsigned int arg)
         HILOG_ERROR(HILOG_MODULE_APP, "WatchdogGetStatus expect <WATCHDOG_START>");
     }
 
+    if(wdg_reset_flag)
+    {
+        printf("this case will not feed dog,system will reset after 3 seconds!\n");
+    }
+
     uint32_t cnt = 3;
     while (cnt--) {
         HILOG_INFO(HILOG_MODULE_APP, "WatchdogFeed");
-        WatchdogFeed(handle);
+        if(!wdg_reset_flag)
+        {
+            printf("will feed dog \n");
+            WatchdogFeed(handle);
+        }
         LOS_TaskDelay(2000);
     }
 
@@ -69,18 +131,22 @@ static void *WatchdogDriverApiTask(unsigned int arg)
     return NULL;
 }
 
+static void show_menu(void)
+{
+    static const char menu_info[] = "\n"
+                                    "****************************************************************\n"
+                                    "*                                                              *\n"
+                                    "*  WDG Example Menu                                            *\n"
+                                    "*  cmd: 'wdg' enable wdg and feed every second                 *\n"
+                                    "*  cmd: 'wdg_reset' will enable wdg but no feed                *\n"
+                                    "****************************************************************\n";
+    printf("%s", menu_info);
+}
+
 static void WatchdogDriverTest(void)
 {
-    TSK_INIT_PARAM_S taskInitParam = {0};
-    
-    taskInitParam.pcName = "wdg_test";
-    taskInitParam.pfnTaskEntry = WatchdogDriverApiTask;
-    taskInitParam.stackAddr = 0;
-    taskInitParam.uwStackSize = 4096;
-    taskInitParam.usTaskPrio = 20;
-    taskInitParam.uwArg = 0x66;
-    UINT32 taskID;
-    LOS_TaskCreate(&taskID, &taskInitParam);
+    app_cmd_init();
+    show_menu();
 }
 
 APP_FEATURE_INIT(WatchdogDriverTest);

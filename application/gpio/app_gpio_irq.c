@@ -26,7 +26,7 @@
 
 static int32_t GpioIrq(uint16_t gpio, void *data)
 {
-    HILOG_INFO(HILOG_MODULE_APP, "gpio: %u", gpio);
+    printf("gpio: %u\n", gpio);
     return 0;
 }
 

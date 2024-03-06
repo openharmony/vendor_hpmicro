@@ -41,19 +41,23 @@ static void *GpioDriverInTestTask(unsigned int arg)
         GpioRead(BOARD_GPIO_IN_IRQ_TASK_GPIO1, &val);
         if (val == GPIO_VAL_LOW && gpio1_flag == GPIO_VAL_HIGH) {
             gpio1_flag = GPIO_VAL_LOW;
-            HILOG_INFO(HILOG_MODULE_APP, "GPIO1 DOWN");
+            //HILOG_INFO(HILOG_MODULE_APP, "GPIO1 DOWN");
+            printf("GPIO1 DOWN \n");
         } else if (val == GPIO_VAL_HIGH && gpio1_flag == GPIO_VAL_LOW) {
             gpio1_flag = GPIO_VAL_HIGH;
-            HILOG_INFO(HILOG_MODULE_APP, "GPIO2 UP");
+            //HILOG_INFO(HILOG_MODULE_APP, "GPIO2 UP");
+            printf("GPIO2 UP \n");
         }
 
         GpioRead(BOARD_GPIO_IN_IRQ_TASK_GPIO2, &val);
         if (val == GPIO_VAL_LOW && gpio2_flag == GPIO_VAL_HIGH) {
             gpio2_flag = GPIO_VAL_LOW;
-            HILOG_INFO(HILOG_MODULE_APP, "GPIO1 DOWN");
+            //HILOG_INFO(HILOG_MODULE_APP, "GPIO1 DOWN");
+            printf("GPIO1 DOWN \n");
         } else if (val == GPIO_VAL_HIGH && gpio2_flag == GPIO_VAL_LOW) {
             gpio2_flag = GPIO_VAL_HIGH;
-            HILOG_INFO(HILOG_MODULE_APP, "GPIO2 UP");
+            //HILOG_INFO(HILOG_MODULE_APP, "GPIO2 UP");
+            printf("GPIO2 UP \n");
         }
 
         LOS_TaskDelay(50);

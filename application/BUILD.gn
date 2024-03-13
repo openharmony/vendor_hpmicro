@@ -13,12 +13,19 @@
 
 import("//kernel/liteos_m/liteos.gni")
 module_name = get_path_info(rebase_path("."), "name")
-module_group(module_name) {
-  modules = [
-    "watchdog",
-    "gpio",
-    "lwip",
-    "i2c",
-    "spi",
-  ]
+if (build_xts == false) {
+  module_group(module_name) {
+    modules = [
+      "watchdog",
+      "gpio",
+      "lwip",
+      "i2c",
+      "spi",
+    ]
+  }
+} else {
+    module_group(module_name) {
+    modules = [
+    ]
+  }
 }

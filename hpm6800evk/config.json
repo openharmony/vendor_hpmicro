@@ -122,6 +122,12 @@
           ]
         }
       ]
+    },
+    {
+      "subsystem": "developtools",
+      "components": [
+        { "component": "syscap_codec", "features":[] }
+      ]
     }
   ],
   "third_party_dir": "",

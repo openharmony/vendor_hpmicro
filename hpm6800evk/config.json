@@ -5,9 +5,6 @@
   "ohos_version": "OpenHarmony 3.1",
   "device_company": "hpmicro",
   "board": "hpm6800evk",
-  "inherit": [
-    "productdefine/common/base/mini_system.json"
-  ],
   "kernel_type": "liteos_m",
   "kernel_version": "3.0.0",
   "force_link_libs": [
@@ -41,6 +38,12 @@
       ]
     },
     {
+      "subsystem": "communication",
+      "components": [
+        { "component": "dsoftbus" }
+      ]
+    },
+    {
       "subsystem": "security",
       "components": [
         {
@@ -63,6 +66,12 @@
             "utils_lite_feature_file = true"
           ]
         }
+      ]
+    },
+    {
+      "subsystem": "updater",
+      "components": [
+        { "component": "sys_installer_lite" }
       ]
     },
     {

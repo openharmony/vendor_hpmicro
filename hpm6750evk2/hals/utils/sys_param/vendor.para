@@ -11,21 +11,21 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-const.build.characteristics=****
+const.build.characteristics=default
 
-const.product.manufacturer=****
+const.product.manufacturer=HPMicro Semiconductor
 
-const.product.brand=****
+const.product.brand=HPMICRO
 
-const.product.name=****
+const.product.name=HPM6750EVK2
 
-const.build.product=****
+const.build.product=HPM6750EVK2
 
-const.product.model=****
+const.product.model=HPM6750EVK2
 
-const.software.model=****
+const.software.model=HPM6750EVK2-P00
 
-const.product.hardwareversion=****
+const.product.hardwareversion=HPM6750EVK2REVC
 
 const.product.hardwareprofile="aout:true"
 
@@ -33,8 +33,8 @@ const.ohos.serial=1234567890
 
 const.product.bootloader.version=bootloader
 
-const.product.cpu.abilist=****
+const.product.cpu.abilist=riscv-liteos
 
-const.product.software.version="OpenHarmony 3.1.2"
+const.product.software.version="1.0.0.0"
 
 const.product.firstapiversion=1

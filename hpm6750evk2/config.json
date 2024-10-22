@@ -18,7 +18,7 @@
 		  {
 			"component": "liteos_m",
 			"features": [
-			  "ohos_kernel_liteos_m_lwip_path = \"//device/board/hpmicro/hpm6800evk/liteos_m/lwip_adapter\""
+			  "ohos_kernel_liteos_m_lwip_path = \"//device/board/hpmicro/hpm6750evk2/liteos_m/lwip_adapter\""
 			]
 		  }
 		]

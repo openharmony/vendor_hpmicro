@@ -32,15 +32,9 @@
 		  {
 			"component": "init",
 			"features": [
-			  "enable_ohos_startup_init_feature_begetctl_liteos = true"
+			  "init_feature_begetctl_liteos = true"
 			]
 		  }
-		]
-	  },
-	  {
-		"subsystem": "communication",
-		"components": [
-		  { "component": "dsoftbus" }
 		]
 	  },
 	  {
@@ -99,7 +93,6 @@
 		  {
 			"component": "hiview_lite",
 			"features": [
-			  "ohos_hiviewdfx_hiview_lite_stack_size = 4096"
 			]
 		  }
 		]
